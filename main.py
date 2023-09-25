@@ -1,5 +1,6 @@
 import math
 
+
 def main():
     while True:
         print("Выберите операцию:")
@@ -17,51 +18,73 @@ def main():
 
         choice = input("Введите номер операции: ")
 
+        if choice in ('1', '2', '3', '4', '5'):
+            while True:
+                try:
+                    num1 = int(input("Введите первое число: "))
+                    num2 = int(input("Введите второе число: "))
+                    break
+                except ValueError:
+                    print("Invalid")
+
+        elif choice in ('6', '7', '8', '9', '10'):
+            while True:
+                try:
+                    num1 = int(input("Введите число: "))
+                    break
+                except ValueError:
+                    print("Invalid")
+
         if choice == '0':
             print("До свидания!")
             break
-        elif choice in ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']:
-            try:
-                num1 = float(input("Введите первое число: "))
-                if choice != '6':
-                    num2 = float(input("Введите второе число: "))
-            except ValueError:
-                print("Ошибка: Введите корректные числа.")
+
+        elif choice == '1':
+            result = num1 + num2
+            print("Результат: ", result)
+
+        elif choice == '2':
+            result = num1 - num2
+            print("Результат: ", result)
+
+        elif choice == '3':
+            result = num1 * num2
+            print("Результат: ", result)
+
+        elif choice == '4':
+            if num2 == 0:
+                print("Ошибка: Деление на ноль невозможно.")
                 continue
+            result = num1 / num2
+            print("Результат: ", result)
 
-            if choice == '1':
-                result = num1 + num2
-            elif choice == '2':
-                result = num1 - num2
-            elif choice == '3':
-                result = num1 * num2
-            elif choice == '4':
-                if num2 == 0:
-                    print("Ошибка: Деление на ноль невозможно.")
-                    continue
-                result = num1 / num2
-            elif choice == '5':
-                result = num1 ** num2
-            elif choice == '6':
-                if num1 < 0:
-                    print("Ошибка: Квадратный корень из отрицательного числа невозможен.")
-                    continue
-                result = math.sqrt(num1)
-            elif choice == '7':
-                if num1 < 0:
-                    print("Ошибка: Факториал отрицательного числа невозможен.")
-                    continue
-                result = math.factorial(int(num1))
-            elif choice == '8':
-                result = math.sin(num1)
-            elif choice == '9':
-                result = math.cos(num1)
-            elif choice == '10':
-                result = math.tan(num1)
+        elif choice == '5':
+            result = num1 ** num2
+            print("Результат: ", result)
 
-            print(f"Результат: {result}")
+        elif choice == '6':
+            if num1 < 0:
+                print("Ошибка: Квадратный корень из отрицательного числа невозможен.")
+                continue
+            result = math.sqrt(num1)
+            print("Результат: ", result)
+        elif choice == '7':
+            result = math.factorial(num1)
+            print("Результат: ", result)
+
+        elif choice == '8':
+            result = math.sin(num1)
+            print("Результат: ", result)
+
+        elif choice == '9':
+            result = math.cos(num1)
+            print("Результат: ", result)
+
+        elif choice == '10':
+            result = math.tan(num1)
+            print("Результат: ", result)
         else:
-            print("Ошибка: Некорректная операция. Пожалуйста, выберите правильный номер операции.")
+            print("Ошибка пиши правильно")
 
-if __name__ == "__main__":
-    main()
+
+main()
